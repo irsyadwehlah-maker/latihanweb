@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasar Segar - Belanja Sayur</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="warung-body">
+
+    <nav class="navbar">
+        <h2 style="color: #f1c40f;">🥬 Warung Sayur Saya</h2>
+        <div class="nav-right">
+            <a href="kontak.html" style="color: white; text-decoration: none; margin-right: 20px; font-weight: 500;">Hubungi Kami</a>
+            <span id="userDisplay" style="margin-right: 15px; font-weight: bold;"></span>
+            <button onclick="logout()" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <h1>Sayuran Organik Langsung ke Rumah</h1>
+        <p>Gunakan kode voucher: <strong style="color: #f1c40f;">SAYURHEMAT</strong> untuk diskon Rp 2.000!</p>
+        <div class="voucher-box">
+            <input type="text" id="voucherInput" placeholder="Masukkan Kode Voucher">
+            <button onclick="applyVoucher()">Gunakan</button>
+        </div>
+        <p id="voucherMsg" style="margin-top: 10px; font-weight: bold;"></p>
+    </div>
+
+    <div class="product-grid">
+        <div class="card">
+            <div class="badge">Terlaris</div>
+            <div class="emoji">🥦</div>
+            <h3>Brokoli Segar</h3>
+            <p class="price">Rp 10.000</p>
+            <button class="btn-buy" onclick="checkout('Brokoli Segar', 10000)">
+                <i class="fab fa-whatsapp"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="card">
+            <div class="emoji">Carrot 🥕</div>
+            <h3>Wortel Manis</h3>
+            <p class="price">Rp 8.000</p>
+            <button class="btn-buy" onclick="checkout('Wortel Manis', 8000)">
+                <i class="fab fa-whatsapp"></i> Beli Sekarang
+            </button>
+        </div>
+        <div class="card">
+            <div class="emoji">🍅</div>
+            <h3>Tomat Merah</h3>
+            <p class="price">Rp 5.000</p>
+            <button class="btn-buy" onclick="checkout('Tomat Merah', 5000)">
+                <i class="fab fa-whatsapp"></i> Beli Sekarang
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Cek apakah sudah login
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+
+        document.getElementById('userDisplay').innerText = "Halo, " + localStorage.getItem('username');
+
+        let discount = 0;
+
+        function applyVoucher() {
+            const code = document.getElementById('voucherInput').value;
+            if (code === "SAYURHEMAT") {
+                discount = 2000;
+                document.getElementById('voucherMsg').innerText = "Voucher Berhasil! Diskon Rp 2.000 aktif.";
+                document.getElementById('voucherMsg').style.color = "#2ecc71";
+            } else {
+                alert("Kode voucher salah!");
+            }
+        }
+
+        function checkout(item, price) {
+            const total = price - discount;
+            const user = localStorage.getItem('username');
+            const phone = "6289630435961"; // Nomor kamu dalam format 62
+            
+            const message = `*PESANAN BARU - WARUNG SAYUR*\n` +
+                            `--------------------------\n` +
+                            `👤 Nama: ${user}\n` +
+                            `🥦 Produk: ${item}\n` +
+                            `💰 Harga: Rp ${price}\n` +
+                            `🎁 Diskon: Rp ${discount}\n` +
+                            `✅ *Total Bayar: Rp ${total}*`;
+            
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

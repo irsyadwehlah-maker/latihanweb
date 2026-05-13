@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Warung Sayur Saya</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-header">
+            <h2>Sign in</h2>
+            <i class="fa-solid fa-leaf fa-2xl" style="color: #27ae60;"></i>
+        </div>
+
+        <div class="inner-box">
+            <h3>Selamat Datang Kembali!</h3>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Username (isi bebas)" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-orange">Masuk Sekarang</button>
+            </form>
+        </div>
+        
+        <div class="social-bar">
+            <p style="font-size: 12px; color: #777; width: 100%; text-align: center; margin-bottom: 10px;">Atau masuk dengan</p>
+            <div style="display: flex; justify-content: space-around; width: 100%;">
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-apple"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            // Simpan data login sederhana ke browser
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('username', user);
+            window.location.href = 'warung.html';
+        });
+    </script>
+</body>
+</html>

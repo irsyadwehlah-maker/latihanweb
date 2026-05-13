@@ -1,0 +1,178 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+/* HALAMAN LOGIN */
+.container {
+    background-color: #2c2c2c;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    margin: 80px auto;
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.inner-box {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.input-group input {
+    width: 100%;
+    background: #121212;
+    border: 1px solid #444;
+    padding: 12px 15px 12px 45px;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+
+/* WARUNG & CATALOG */
+.warung-body { background-color: #f8f9fa; color: #333; }
+
+.navbar {
+    background: #27ae60;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=1000');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.voucher-box input {
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    width: 200px;
+}
+
+.voucher-box button {
+    padding: 10px 20px;
+    background: #f1c40f;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px 5%;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+.card:hover { transform: translateY(-10px); }
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+.emoji { font-size: 60px; margin-bottom: 15px; }
+
+.price { font-size: 22px; font-weight: bold; color: #27ae60; margin: 10px 0; }
+
+/* TOMBOL */
+.btn-orange {
+    width: 100%;
+    background: #ff4500;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-buy {
+    width: 100%;
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-logout {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social-bar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-bar a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+}
